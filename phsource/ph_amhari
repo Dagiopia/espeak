@@ -20,7 +20,7 @@ endphoneme
 phoneme y
   vwl starttype #@ endtype #@
   ipa ɨ
-  length 180
+  length 10
 
   // assume that word-final [y] are not added by am_rules
   // Only allow [y] in first or last syllables
@@ -35,7 +35,7 @@ endphoneme
 
 phoneme a
   vwl starttype #a endtype #a
-  length 220
+  length 320
   IF nextPhW(isPalatal) THEN
     FMT(vdiph/ai_5)
   ENDIF
@@ -72,6 +72,12 @@ phoneme r
 endphoneme
 
 
+phoneme l'
+  stp
+  lengthmod 3
+endphoneme
+
+
 phoneme p`
   vls blb stp
   lengthmod 2
@@ -82,8 +88,9 @@ phoneme p`
 endphoneme
 
 
-phoneme b
+phoneme b,
   vcd blb stp
+  length 110
   IF prevPhW(isVowel) AND nextPhW(isVowel) THEN
     ChangePhoneme(B)
   ENDIF
@@ -93,7 +100,7 @@ endphoneme
 
 phoneme t`
   vls alv stp
-  lengthmod 2
+  lengthmod 6
   voicingswitch d
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80 gpaus
   Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
@@ -129,6 +136,7 @@ endphoneme
 phoneme x
   vls vel frc
   lengthmod 3
+  length 100
   IF prevPhW(#i) THEN
     ChangePhoneme(C)
   ELSE
